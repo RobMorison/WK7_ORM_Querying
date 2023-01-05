@@ -208,7 +208,7 @@ def problem_four(request):
   print(f'Students count: {student_count}')
   print(f'Courses count: {course_count}')
   print(f'Instructor count: {instructor_count}')
-  
+
   return complete(request)
 
 
@@ -253,7 +253,15 @@ SELECT COUNT(*) AS `__count`
 # NOTE every time you execute this function a duplicate student will be created with a different primary key number
 def problem_five(request):
 
-    return complete(request)
+  new_student = Student.objects.create(first_name = "Rob", last_name = "Morison", year = 12, gpa = 4.0)
+  
+  print(f'Id: {new_student.id}')
+  print(f'Full Name: {new_student.first_name} {new_student.last_name}')
+  print(f'Year: {new_student.year}')
+  print(f'GPA: {new_student.gpa}')     
+    
+
+  return complete(request)
 
 
 # Supporting Query Method Documentation:
@@ -284,7 +292,7 @@ VALUES ('Kyle', 'Harwood', 9, 3.0)
 # Then query the studets table to get that student by their id
 # Print the new student's id, full name, and gpa to the terminal
 def problem_six(request):
-
+    Student.objects.filter(pk = 11).update(gpa = 2.0)
     # Make sure to set this equal to the primary key of the row you just created!
     student_id = 11
 

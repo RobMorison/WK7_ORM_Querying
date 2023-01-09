@@ -292,9 +292,12 @@ VALUES ('Kyle', 'Harwood', 9, 3.0)
 # Then query the studets table to get that student by their id
 # Print the new student's id, full name, and gpa to the terminal
 def problem_six(request):
-    Student.objects.filter(pk = 11).update(gpa = 2.0)
+    grade_change = Student.objects.filter(pk = 11).update(gpa = 2.0)
     # Make sure to set this equal to the primary key of the row you just created!
-    student_id = 11
+    student_id =  Student.objects.get(pk = 11)
+    print(f'Id: {student_id.id}')
+    print(f'Full Name: {student_id.first_name} {student_id.last_name}')
+    print(f'GPA: {student_id.gpa}')
 
     return complete(request)
 

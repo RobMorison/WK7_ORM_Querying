@@ -343,6 +343,10 @@ LIMIT 21
 # Check your MySQL Workbench to confirm the student is no longer in the table!
 def problem_seven(request):
 
+    Student.objects.get(pk = 11).delete()
+
+    
+    
     # Make sure to set this equal to the primary key of the row you just created!
     student_id = 11
 
